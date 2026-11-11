@@ -1,19 +1,27 @@
-# React + Vite
+NextUp 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NextUp is a sleek, lightweight task management web application designed to help users organize daily to-dos and focus on what needs to get done next. Powered by browser localStorage, your tasks persist locally across browser sessions with zero login required and absolute data privacy.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Instant Persistence: Uses browser localStorage to seamlessly save tasks so your data remains intact upon page refreshes or browser reopens.
 
-## React Compiler
+Clean Task Management: Add, edit, mark complete, or delete daily tasks effortlessly.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Focus-Oriented UI: Designed to minimize clutter and bring immediate attention to your current priorities.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+Zero Configuration: No external database, user registration, or API keys needed—just open and start organizing.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠️ Built With
+
+HTML5 / Tailwind CSS
+
+JavaScript (ES6+)
+
+Web Storage API (localStorage)
+
+
+
+
+
