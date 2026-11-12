@@ -5,7 +5,7 @@ export default function Button({ label, onClick }) {
 
     return (
         <button 
-        onClick={() => onClick}
+        onClick={onClick}
         className={defaultStyle}
         >{label}
         </button>

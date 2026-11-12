@@ -9,12 +9,17 @@ export default function Home() {
     const [text, setText] = useState('');
 
     useEffect(() => {
-        localStorage.setItem("nextup_task", JSON.stringify(tasks))
+        localStorage.setItem("nextup_task", JSON.stringify(tasks));
     }, [tasks])
 
     const addTask = (text) => {
-        const newTask = { id: Date.now(), text, completed: false }
-        setTasks((prevTasks) => [...prevTasks, newTask])
+        if(text === '') {
+            return
+        }
+        const newTask = { id: Date.now(), text };
+        setTasks((prevTasks) => [...prevTasks, newTask]);
+        document.getElementById('task').value = '';
+        setText('');
     }
 
     const deleteAllTasks = () => {
@@ -22,8 +27,17 @@ export default function Home() {
     }
 
     const deleteTask = (id) => {
-        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     }
+
+    const handleKeyDown = (e) => {
+        if(e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            addTask(text)
+        }
+    }
+
+
 
 
 
@@ -33,18 +47,32 @@ export default function Home() {
                 id="task"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e)}
                 placeholder="Enter task here..." //future enhancement idea: create fun placeholder text that rotates randomly
                 rows={2}
-                className="border-2 border-slate-400 p-2 w-1/2 rounded-lg"
+                className="border-2 border-slate-400 p-2 w-3/8 rounded-lg"
             ></textarea>
             <div>
                 <Button 
                     label="Add Task"
-                    onClick={addTask}
+                    onClick={() => addTask(text)}
+                    type="submit"
                 />
                 <Button 
                     label="Delete All Tasks"
+                    onClick={() => deleteAllTasks()}
                 />
+            </div>
+            <div>
+                {tasks.map((task) => (
+                    <div key={task.id}>
+                        <span>{task.text}</span>
+                        <Button 
+                            label="Delete"
+                            onClick={() => deleteTask(task.id)}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     )
