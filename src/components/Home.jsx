@@ -37,6 +37,9 @@ export default function Home() {
         }
     }
 
+    const isLastTask = tasks.length - 1;
+    console.log(isLastTask)
+
 
 
 
@@ -50,9 +53,9 @@ export default function Home() {
                 onKeyDown={(e) => handleKeyDown(e)}
                 placeholder="Enter task here..." //future enhancement idea: create fun placeholder text that rotates randomly
                 rows={2}
-                className="border-2 border-slate-400 p-2 w-3/8 rounded-lg"
+                className="border-2 border-cyan-600 p-2 w-full rounded-lg"
             ></textarea>
-            <div>
+            <div className="flex gap-4 mt-2 mb-4">
                 <Button 
                     label="Add Task"
                     onClick={() => addTask(text)}
@@ -65,12 +68,12 @@ export default function Home() {
             </div>
             <div>
                 {tasks.map((task) => (
-                    <div key={task.id}>
-                        <span>{task.text}</span>
+                    <div key={task.id} className={`flex gap-4 items-center py-2 ${isLastTask ? '' : 'border-b border-zinc-100'}`}>
                         <Button 
                             label="Delete"
                             onClick={() => deleteTask(task.id)}
                         />
+                        <span>{task.text}</span>
                     </div>
                 ))}
             </div>
