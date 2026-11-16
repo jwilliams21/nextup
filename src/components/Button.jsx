@@ -1,7 +1,8 @@
 
 
 export default function Button({ label, onClick }) {
-    const defaultStyle = 'py-2 px-4 bg-cyan-600 rounded-lg'
+    const defaultStyle = 'py-2 px-4 rounded-lg font-bold cursor-pointer border-2 border-cyan-400 bg-zinc-950 text-zinc-100'
+    //bg-cyan-400 text-cyan-950
 
     return (
         <button 
