@@ -54,7 +54,7 @@ export default function Home() {
                 rows={2}
                 className="border-2 border-cyan-400 p-2 w-full rounded-lg placeholder-white"
             ></textarea>
-            <div className="flex gap-4 mt-2 mb-4">
+            <div className="flex gap-2 mt-2 mb-4">
                 <Button 
                     label="Add Task"
                     onClick={() => addTask(text)}
