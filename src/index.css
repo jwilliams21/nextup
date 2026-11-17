@@ -2,7 +2,31 @@
 
 @import "tailwindcss";
 
-/* @theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-brand: 'Plus Jakarta Sans', sans-serif;
-} */
+:root,
+html,
+body,
+#root {
+  background-color: #18181b !important;
+  margin: 0;
+  padding: 0;
+  width: 380px;
+  height: fit-content;
+}
+
+/* Custom subtle cyan/zinc scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #18181b; /* zinc-900 */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a; /* zinc-800 */
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee; /* cyan-400 */
+}
