@@ -55,7 +55,7 @@ export default function Home() {
 
 
     return (
-    <div className="w-95 h-120 bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden">
+    <div className="w-full h-120 bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden">
         {/* Textarea & Action Buttons */}
         <div className="shrink-0">
             <textarea
@@ -65,9 +65,9 @@ export default function Home() {
                 onKeyDown={(e) => handleKeyDown(e)}
                 placeholder="Enter task here..." //future enhancement idea: create fun placeholder text that rotates randomly
                 rows={2}
-                className="border border-zinc-700 bg-zinc-800 p-2 w-full rounded-lg text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-cyan-400 resize-none transition-colors"
+                className="border border-zinc-700 bg-zinc-800 p-2 w-full box-border rounded-lg text-zinc-100 placeholder-zinc-200 focus:outline-none focus:border-cyan-400 resize-none transition-colors"
             ></textarea>
-            <div className="flex gap-2 mt-2 mb-3">
+            <div className="flex gap-3 mt-4 mb-3">
                 <Button 
                     label="Add Task"
                     onClick={() => addTask(text)}
@@ -86,13 +86,13 @@ export default function Home() {
                 tasks.map((task, index) => (
                     <div 
                         key={task.id} 
-                        className={`flex gap-3 items-center py-3 ${isTaskLast(index) ? '' : 'border-b border-zinc-800'}`}
+                        className={`flex gap-3 items-center py-4 ${isTaskLast(index) ? '' : 'border-b border-zinc-700'}`}
                     >
                         <Button 
                             label="Delete"
                             onClick={() => deleteTask(task.id)}
                         />
-                        <span className="text-sm text-zinc-200 wrap-break-word flex-1">{task.text}</span>
+                        <span className="text-sm text-zinc-200 wrap-break-word w-1/2 flex-1">{task.text}</span>
                     </div>
                 ))
             ) : (
@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         {/* Task Counter */}
-        <div className="shrink-0 pt-2 border-t border-zinc-800 text-xs text-zinc-400 flex justify-between items-center">
+        <div className="shrink-0 pt-2 border-t border-zinc-700 text-xs text-zinc-400 flex justify-between items-center">
             <span>{tasks.length} {tasks.length === 1 ? 'task' : 'tasks'}</span>
         </div>
     </div>
