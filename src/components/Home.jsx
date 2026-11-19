@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Button from './Button';
+import { placeholders } from '../data/placeholders';
 
 export default function Home() {
     const [tasks, setTasks] = useState(() => {
@@ -63,9 +64,9 @@ export default function Home() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
-                placeholder="Enter task here..." //future enhancement idea: create fun placeholder text that rotates randomly
+                placeholder={placeholders[Math.floor(Math.random() * placeholders.length)]}
                 rows={2}
-                className="border border-zinc-700 bg-zinc-800 p-2 w-full box-border rounded-lg text-zinc-100 placeholder-zinc-200 focus:outline-none focus:border-cyan-400 resize-none transition-colors"
+                className="border border-zinc-700 bg-zinc-800 p-2 w-full box-border rounded-lg text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-cyan-400 resize-none transition-colors"
             ></textarea>
             <div className="flex gap-3 mt-4 mb-3">
                 <Button 
