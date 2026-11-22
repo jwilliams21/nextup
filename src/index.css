@@ -2,16 +2,6 @@
 
 @import "tailwindcss";
 
-:root,
-html,
-body,
-#root {
-  background-color: #18181b !important;
-  margin: 0;
-  padding: 0;
-  width: 380px;
-  height: fit-content;
-}
 
 /* Custom subtle cyan/zinc scrollbar */
 .custom-scrollbar::-webkit-scrollbar {

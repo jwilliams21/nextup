@@ -69,7 +69,7 @@ export default function Home() {
 
 
     return (
-    <div className="w-full h-full sm:h-auto bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden box-border">
+    <div className="w-full h-full min-h-0 bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden box-border">
         {/* Textarea & Action Buttons */}
         <div className="shrink-0">
             <textarea
