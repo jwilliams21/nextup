@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
 import { placeholders } from '../data/placeholders';
 
@@ -8,6 +8,8 @@ export default function Home() {
         return savedTasks ? JSON.parse(savedTasks) : [];
     });
     const [text, setText] = useState('');
+
+    const textareaRef = useRef(null);
 
     useEffect(() => {
         localStorage.setItem("nextup_task", JSON.stringify(tasks));
@@ -23,6 +25,17 @@ export default function Home() {
             document.documentElement.style.height = `${newHeight}px`;
         });
     }, [tasks])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if(textareaRef.current) {
+                textareaRef.current.focus();
+                textareaRef.current.select();
+            }
+        }, 50)
+
+        return () => clearTimeout(timer)
+    }, [])
 
     const addTask = (text) => {
         if(text === '') {
@@ -56,12 +69,13 @@ export default function Home() {
 
 
     return (
-    <div className="lg:w-95 max-w-full h-120 bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden box-border">
+    <div className="w-full h-full sm:h-auto bg-zinc-900 text-zinc-100 flex flex-col justify-between overflow-hidden box-border">
         {/* Textarea & Action Buttons */}
         <div className="shrink-0">
             <textarea
                 id="task"
                 value={text}
+                ref={textareaRef}
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
                 placeholder={placeholders[Math.floor(Math.random() * placeholders.length)]}
